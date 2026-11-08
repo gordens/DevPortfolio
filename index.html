@@ -94,6 +94,7 @@
     .nav-list { display: flex; align-items: center; gap: 28px; }
     .nav-list a { font-size: .92rem; color: var(--muted); transition: color .2s; }
     .nav-list a:hover { color: var(--blue); }
+    .nav-list a.active { color: var(--blue); }
     .menu-toggle {
       display: none;
       padding: 8px 14px;
@@ -735,6 +736,41 @@
 
     // Без JavaScript навигация остаётся видимой и доступной.
     document.documentElement.classList.add("js");
+
+    // Подсветка раздела с учётом отступа якорей и конца страницы.
+    const sectionLinks = [...navigation.querySelectorAll('a[href^="#"]')];
+    const navSections = sectionLinks.map(link =>
+      document.getElementById(link.hash.slice(1))
+    );
+    let navigationFrame = null;
+
+    function updateActiveSection() {
+      navigationFrame = null;
+      const offset = parseFloat(getComputedStyle(document.documentElement).scrollPaddingTop) || 0;
+      let activeIndex = navSections.findLastIndex(section =>
+        section && section.getBoundingClientRect().top <= offset + 1
+      );
+
+      if (window.scrollY > 0 &&
+          window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 1) {
+        activeIndex = navSections.length - 1;
+      }
+
+      sectionLinks.forEach((link, index) => {
+        link.classList.toggle("active", index === activeIndex);
+      });
+    }
+
+    function scheduleNavigationUpdate() {
+      if (navigationFrame === null) {
+        navigationFrame = requestAnimationFrame(updateActiveSection);
+      }
+    }
+
+    window.addEventListener("scroll", scheduleNavigationUpdate, { passive: true });
+    window.addEventListener("resize", scheduleNavigationUpdate);
+    window.addEventListener("pageshow", scheduleNavigationUpdate);
+    updateActiveSection();
 
     document.querySelector("#year").textContent = new Date().getFullYear();
 
