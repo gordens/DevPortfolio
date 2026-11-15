@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#0b1020">
   <meta name="description"
-        content="DevPortfolio — демонстрационный сайт начинающего разработчика: обучение, навыки и учебные проекты.">
-  <title>DevPortfolio — начинающий разработчик</title>
+    content="DevPortfolio — демонстрационный сайт начинающего разработчика: обучение, навыки и учебные проекты.">
+  <h1>Привет, я начинающий разработчик — Обновлено через CI/CD</h1>
 
   <link rel="stylesheet" href="style.css">
 </head>
@@ -21,8 +22,7 @@
         DevPortfolio
       </a>
 
-      <button class="menu-toggle" type="button"
-              aria-expanded="false" aria-controls="main-nav">
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav">
         Меню
       </button>
 
@@ -53,8 +53,7 @@
         </div>
       </div>
 
-      <div class="code-window" role="img"
-           aria-label="Иллюстрация редактора кода: изучать, создавать, улучшать">
+      <div class="code-window" role="img" aria-label="Иллюстрация редактора кода: изучать, создавать, улучшать">
         <div class="window-bar" aria-hidden="true">
           <span class="window-dot"></span>
           <span class="window-dot"></span>
@@ -145,8 +144,7 @@
       </div>
     </section>
 
-    <section class="section container projects-section" id="projects"
-             aria-labelledby="projects-title">
+    <section class="section container projects-section" id="projects" aria-labelledby="projects-title">
       <div class="section-head">
         <h2 id="projects-title">Практика в проектах</h2>
         <p>
@@ -159,8 +157,7 @@
       <div class="projects-grid">
         <article class="project">
           <div class="project-art">
-            <img src="images/1.png"
-                 alt="Иллюстрация учебного лендинга с книгами и выпускной шапочкой">
+            <img src="images/1.png" alt="Иллюстрация учебного лендинга с книгами и выпускной шапочкой">
           </div>
           <div class="project-body">
             <span class="project-type">Демонстрационный проект</span>
@@ -170,10 +167,12 @@
               блоком вопросов и навигацией по разделам.
             </p>
             <ul class="tags" aria-label="Технологии проекта">
-              <li>HTML5</li><li>CSS3</li><li>JavaScript</li>
+              <li>HTML5</li>
+              <li>CSS3</li>
+              <li>JavaScript</li>
             </ul>
             <button class="project-button" type="button" data-project="landing"
-                    aria-label="Подробнее о проекте: Лендинг учебного курса">
+              aria-label="Подробнее о проекте: Лендинг учебного курса">
               Подробнее о проекте
             </button>
           </div>
@@ -181,8 +180,7 @@
 
         <article class="project">
           <div class="project-art">
-            <img src="images/2.png"
-                 alt="Иллюстрация планировщика задач со списком и диаграммой прогресса">
+            <img src="images/2.png" alt="Иллюстрация планировщика задач со списком и диаграммой прогресса">
           </div>
           <div class="project-body">
             <span class="project-type">Демонстрационный проект</span>
@@ -192,10 +190,12 @@
               добавление, отметка выполнения и фильтрация.
             </p>
             <ul class="tags" aria-label="Технологии проекта">
-              <li>JavaScript</li><li>DOM</li><li>localStorage</li>
+              <li>JavaScript</li>
+              <li>DOM</li>
+              <li>localStorage</li>
             </ul>
             <button class="project-button" type="button" data-project="tasks"
-                    aria-label="Подробнее о проекте: Планировщик задач">
+              aria-label="Подробнее о проекте: Планировщик задач">
               Подробнее о проекте
             </button>
           </div>
@@ -203,8 +203,7 @@
 
         <article class="project">
           <div class="project-art">
-            <img src="images/3.png"
-                 alt="Иллюстрация терминала с заметками и символом Python">
+            <img src="images/3.png" alt="Иллюстрация терминала с заметками и символом Python">
           </div>
           <div class="project-body">
             <span class="project-type">Демонстрационный проект</span>
@@ -214,10 +213,12 @@
               поиска и хранения коротких текстовых заметок.
             </p>
             <ul class="tags" aria-label="Технологии проекта">
-              <li>Python</li><li>JSON</li><li>Git</li>
+              <li>Python</li>
+              <li>JSON</li>
+              <li>Git</li>
             </ul>
             <button class="project-button" type="button" data-project="notes"
-                    aria-label="Подробнее о проекте: Заметки в терминале">
+              aria-label="Подробнее о проекте: Заметки в терминале">
               Подробнее о проекте
             </button>
           </div>
@@ -275,8 +276,7 @@
     </div>
   </footer>
 
-  <dialog id="details-dialog" aria-labelledby="dialog-title"
-          aria-describedby="dialog-description">
+  <dialog id="details-dialog" aria-labelledby="dialog-title" aria-describedby="dialog-description">
     <span class="dialog-label" id="dialog-label"></span>
     <h2 id="dialog-title"></h2>
     <p id="dialog-description"></p>
@@ -321,14 +321,14 @@
 
     document.addEventListener("keydown", event => {
       if (event.key === "Escape" &&
-          menuButton.getAttribute("aria-expanded") === "true") {
+        menuButton.getAttribute("aria-expanded") === "true") {
         setMenu(false, true);
       }
     });
 
     document.addEventListener("click", event => {
       if (!event.target.closest(".header") &&
-          menuButton.getAttribute("aria-expanded") === "true") {
+        menuButton.getAttribute("aria-expanded") === "true") {
         setMenu(false);
       }
     });
@@ -353,7 +353,7 @@
       );
 
       if (window.scrollY > 0 &&
-          window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 1) {
+        window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 1) {
         activeIndex = navSections.length - 1;
       }
 
@@ -461,4 +461,5 @@
     });
   </script>
 </body>
+
 </html>
